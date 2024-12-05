@@ -32,7 +32,8 @@ class BroadcastController extends Controller
             $log->pushHandler(new StreamHandler(storage_path('logs/laravel.log'), Logger::INFO));
             $log->info($request);
             // 방송 등록
-            $streamKeyEncrypted = auth()->user()->email . 'encrypted';
+            //$streamKeyEncrypted = auth()->user()->email . 'encrypted';
+            $streamKeyEncrypted = auth()->user()->email;
             $broadcast = Broadcast::create([
                 'user_id' => auth()->user()->id,
                 'name' => auth()->user()->name,
